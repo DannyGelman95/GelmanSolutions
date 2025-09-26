@@ -127,6 +127,12 @@
       .grid-2{grid-template-columns: repeat(2, 1fr)}  
       .hero h1{font-size:2.6rem}  
     }  
+    
+    /* Contact tweaks (scoped) */
+.wa-card { border-color: var(--gray-200); }
+@media (min-width: 720px){
+  .wa-card { position: sticky; top: 1rem; }
+}
   </style>  
 </head>
 <body>
@@ -135,7 +141,7 @@
     <div class="container nav">
       <a href="#home" class="brand" aria-label="Gelman Solutions Home">
         <!-- Replace src with your actual logo file path -->
-        <img src="/GelmanSolutions - Logo 2.png" alt="Gelman Solutions logo" style="height:40px;width:40px;object-fit:contain" />
+        <img src="/Assets/GelmanSolutions - Logo 2.png" alt="Gelman Solutions logo" style="height:40px;width:40px;object-fit:contain" />
         <div class="brand-text">
           <div class="brand-title">GELMAN</div>
           <div class="brand-sub">SOLUTIONS</div>
@@ -222,37 +228,76 @@
     </div>
   </section>
 
-  <!-- Contact -->
-  <section id="contact">
-    <div class="container" style="max-width:760px">
-      <h2>Contact Us</h2>
-      <p class="sub">Tell us about your project. We’ll respond within one business day.</p>
+<section id="contact" style="background: var(--gray-100)">
+  <div class="container">
+    <h2>Contact Us</h2>
+    <p class="sub">Tell us about your project — we’ll respond within one business day.</p>
 
-      <form action="mailto:info@gelman-solutions.example" method="post" enctype="text/plain">
-        <div class="grid-2">
-          <div>
-            <label for="name">Name</label>
-            <input id="name" name="Name" type="text" placeholder="Your full name" required>
+    <div class="grid-2" style="margin-top:1rem; align-items:start">
+      <!-- Column 1: Email form -->
+      <article class="card">
+        <h3 style="margin-top:0">Email us</h3>
+        <p class="muted" style="margin-top:.25rem">Share a few details and we’ll get back to you.</p>
+
+        <!-- Tip: replace mailto with a secure HTTPS endpoint (e.g., Formspree) to remove the browser “insecure form” notice -->
+        <form action="mailto:info@your-domain.com" method="POST" enctype="text/plain">
+          <div class="grid-2">
+            <div>
+              <label for="name">Name</label>
+              <input id="name" name="Name" type="text" placeholder="Your full name" autocomplete="name" required>
+            </div>
+            <div>
+              <label for="email">Email</label>
+              <input id="email" name="Email" type="email" placeholder="you@example.com" autocomplete="email" required>
+            </div>
           </div>
-          <div>
-            <label for="email">Email</label>
-            <input id="email" name="Email" type="email" placeholder="you@example.com" required>
+
+          <div style="margin-top:1rem">
+            <label for="phone">Phone (optional)</label>
+            <input id="phone" name="Phone" type="tel" placeholder="(555) 555-5555" autocomplete="tel">
           </div>
-        </div>
-        <div style="margin-top:1rem">
-          <label for="phone">Phone (optional)</label>
-          <input id="phone" name="Phone" type="tel" placeholder="(555) 555‑5555">
-        </div>
-        <div style="margin-top:1rem">
-          <label for="message">Message</label>
-          <textarea id="message" name="Message" rows="6" placeholder="Briefly describe your project" required></textarea>
-        </div>
-        <div style="margin-top:1rem;display:flex;gap:.75rem;align-items:center;justify-content:space-between;flex-wrap:wrap">
-          <button class="btn btn-primary" type="submit">Send</button>
-        </div>
-      </form>
+
+          <div style="margin-top:1rem">
+            <label for="message">Message</label>
+            <textarea id="message" name="Message" rows="6" placeholder="Briefly describe your project" required></textarea>
+          </div>
+
+          <div style="margin-top:1rem; display:flex; gap:.75rem; flex-wrap:wrap; align-items:center">
+            <button type="submit" class="btn btn-primary">Send Email</button>
+            <span class="muted">Typical reply: within 1 business day</span>
+          </div>
+        </form>
+      </article>
+
+      <!-- Column 2: WhatsApp card -->
+      <aside class="card wa-card">
+        <h3 style="margin-top:0">Ask on WhatsApp</h3>
+        <p class="muted" style="margin-top:.25rem">
+          Prefer a quick chat? Message us on WhatsApp — perfect for fast questions and sharing photos.
+        </p>
+
+        <ul class="checks" style="margin-top:.75rem">
+          <li><span class="dot">•</span> Fast questions and pricing</li>
+          <li><span class="dot">•</span> Share screenshots and ideas</li>
+          <li><span class="dot">•</span> Business hours: Sun–Thu, 9:00–18:00</li>
+        </ul>
+
+        <a
+          class="btn btn-outline"
+          style="margin-top:1rem; width:100%; text-align:center"
+          href="https://wa.me/972542133201?text=Hi%20Gelman%20Solutions%2C%20I%27d%20like%20to%20discuss%20a%20project."
+          target="_blank"
+          rel="noopener"
+          aria-label="Open WhatsApp chat with Gelman Solutions"
+        >
+          💬 Chat on WhatsApp
+        </a>
+
+        <small class="muted" style="display:block; margin-top:.5rem">WhatsApp: +972 54‑213‑3201</small>
+      </aside>
     </div>
-  </section>
+  </div>
+</section>
 
   <!-- Footer -->
   <footer>
@@ -267,4 +312,3 @@
   </footer>
 </body>
 </html>
-
