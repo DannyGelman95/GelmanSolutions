@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gelman Solutions | Handyman Services</title>
+  <meta name="description" content="Gelman Solutions — reliable, professional handyman services." />
+    <style>  
+    :root{  
+      --red:#E63946;  
+      --black:#111111;  
+      --gray-900:#1f2937;  
+      --gray-700:#374151;  
+      --gray-500:#6b7280;  
+      --gray-200:#e5e7eb;  
+      --gray-100:#f5f5f5;  
+      --white:#ffffff;  
+      --max:1100px;  
+    }  
+    /* Reset + base */  
+    *,*::before,*::after{box-sizing:border-box}  
+    html,body{margin:0;padding:0}  
+    body{  
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;  
+      color: var(--black);  
+      background: var(--white);  
+      line-height: 1.6;  
+    }  
+    img{max-width:100%;display:block}  
+    a{color:inherit;text-decoration:none}  
+    /* Layout helpers */  
+    .container{max-width:var(--max);margin:0 auto;padding:0 1rem}  
+    .btn{  
+      display:inline-block;  
+      padding:.75rem 1rem;  
+      font-weight:600;  
+      border-radius:.5rem;  
+      border:1px solid transparent;  
+      cursor:pointer;  
+      transition:.15s ease-in-out;  
+    }  
+    .btn-primary{background:var(--red);color:#fff}  
+    .btn-primary:hover{opacity:.9}  
+    .btn-outline{border-color:var(--red);color:var(--red);background:transparent}  
+    .btn-outline:hover{background:var(--red);color:#fff}  
+    /* Header */  
+    header{  
+      position: sticky; top:0; z-index:10;  
+      background: rgba(255,255,255,.98);  
+      backdrop-filter: saturate(1.2) blur(6px);  
+      border-bottom:1px solid var(--gray-200);  
+    }  
+    .nav{  
+      display:flex;align-items:center;justify-content:space-between;height:72px;  
+    }  
+    .brand{display:flex;gap:.75rem;align-items:center}  
+    .brand-text{line-height:1}  
+    .brand-title{font-size:1.6rem;font-weight:800;letter-spacing:.4px}  
+    .brand-sub{font-size:.7rem;letter-spacing:.28em;color:var(--gray-500);margin-top:.1rem}  
+    .nav-links{display:flex;gap:.5rem;align-items:center}  
+    .nav-links a{  
+      padding:.5rem .75rem;border-radius:.4rem;font-weight:600;color:#222;  
+    }  
+    .nav-links a:hover{background:var(--gray-100)}  
+    /* Hero */  
+    .hero{background:var(--gray-100);padding:3rem 0}  
+    .hero-grid{  
+      display:grid;gap:2rem;align-items:center;  
+      grid-template-columns: 1fr;  
+    }  
+    .hero h1{font-size:2.2rem;line-height:1.2;margin:.25rem 0}  
+    .hero p{color:var(--gray-700);margin-top:.75rem}  
+    .hero .actions{margin-top:1rem;display:flex;gap:.75rem;flex-wrap:wrap}  
+    .hero .frame{  
+      border:1px solid var(--gray-200);border-radius:1rem;background:#fff;  
+      padding:.5rem;  
+    }  
+    /* Section */  
+    section{padding:3rem 0}  
+    section h2{font-size:1.8rem;line-height:1.25;margin:0}  
+    section .sub{color:var(--gray-700);margin-top:.35rem}  
+    /* Services */  
+    .cards{  
+      margin-top:1.25rem;  
+      display:grid;gap:1rem;  
+      grid-template-columns: 1fr;  
+    }  
+    .card{  
+      border:1px solid var(--gray-200);border-radius:.8rem;background:#fff;padding:1rem;  
+    }  
+    .card h3{margin:.25rem 0;font-size:1.05rem}  
+    .badge{  
+      width:40px;height:40px;border-radius:999px;display:inline-grid;place-items:center;  
+      background: color-mix(in oklab, var(--red) 12%, white);  
+      color:var(--red);font-size:1.1rem;margin-right:.5rem;  
+    }  
+    .card p{color:var(--gray-700);font-size:.95rem;margin:.35rem 0 0}  
+    /* About */  
+    .about-grid{  
+      display:grid;gap:2rem;grid-template-columns: 1fr;  
+      align-items:center;  
+    }  
+    .about .frame{border:1px solid var(--gray-200);border-radius:1rem;background:#fff;padding:.5rem}  
+    ul.checks{list-style:none;padding:0;margin:1rem 0 0}  
+    ul.checks li{display:flex;gap:.5rem;align-items:flex-start;margin:.35rem 0;color:var(--gray-900)}  
+    ul.checks .dot{color:var(--red);font-weight:700}  
+    /* Contact */  
+    form{margin-top:1rem}  
+    .grid-2{display:grid;gap:1rem}  
+    label{display:block;font-size:.9rem;font-weight:700;margin-bottom:.35rem}  
+    input, textarea{  
+      width:100%;padding:.75rem;border:1px solid var(--gray-200);border-radius:.6rem;  
+      font:inherit;outline:none;transition:border-color .15s, box-shadow .15s;  
+      background:#fff;  
+    }  
+    input:focus, textarea:focus{border-color:var(--red);box-shadow:0 0 0 3px color-mix(in oklab, var(--red) 18%, transparent)}  
+    .muted{color:var(--gray-500);font-size:.9rem}  
+    .previews{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.5rem}  
+    .thumb{width:72px;height:72px;object-fit:cover;border:1px solid var(--gray-200);border-radius:8px}  
+    /* Footer */  
+    footer{border-top:1px solid var(--gray-200);padding:1.25rem 0;color:var(--gray-700);font-size:.9rem}  
+    /* Responsive */  
+    @media (min-width: 720px){  
+      .hero-grid{grid-template-columns: 1.1fr .9fr}  
+      .cards{grid-template-columns: repeat(3, 1fr)}  
+      .about-grid{grid-template-columns: 1fr 1fr}  
+      .grid-2{grid-template-columns: repeat(2, 1fr)}  
+      .hero h1{font-size:2.6rem}  
+    }  
+  </style>  
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container nav">
+      <a href="#home" class="brand" aria-label="Gelman Solutions Home">
+        <!-- Replace src with your actual logo file path -->
+        <img src="/Assets/GelmanSolutions - Logo 2.png" alt="Gelman Solutions logo" style="height:40px;width:40px;object-fit:contain" />
+        <div class="brand-text">
+          <div class="brand-title">GELMAN</div>
+          <div class="brand-sub">SOLUTIONS</div>
+        </div>
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#contact" class="btn btn-primary" style="padding:.5rem .9rem">Get a Quote</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="home" class="hero">
+    <div class="container hero-grid">
+      <div>
+        <p class="muted" style="text-transform:uppercase;letter-spacing:.18em">Welcome</p>
+        <h1>Reliable Handyman Services, Done Right.</h1>
+        <p>From small fixes to weekend‑size projects, Gelman Solutions delivers clean workmanship, clear communication, and fair pricing.</p>
+        <div class="actions">
+          <a href="#services" class="btn btn-outline">Explore Services</a>
+          <a href="#contact" class="btn btn-primary">Request a Quote</a>
+        </div>
+      </div>
+      <div class="frame">
+        <!-- Replace with your own photo if desired -->
+        <img src="https://m.media-amazon.com/images/I/711pTh86caS._UF894,1000_QL80_.jpg" alt="Handyman tools on a workbench">
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services">
+    <div class="container">
+      <h2>Services</h2>
+      <p class="sub">Core handyman offerings for homes and small businesses.</p>
+
+      <div class="cards">
+        <article class="card">
+          <div><span class="badge">🛠️</span><strong>Repairs & Maintenance</strong></div>
+          <p>Doors, trim, drywall patches, leak fixes, caulking, hardware replacement, and seasonal upkeep.</p>
+        </article>
+        <article class="card">
+          <div><span class="badge">🔧</span><strong>Installations</strong></div>
+          <p>TV mounting, shelves, fixtures, faucets, smart devices, curtain rods, blinds, and appliances.</p>
+        </article>
+        <article class="card">
+          <div><span class="badge">🎨</span><strong>Painting & Touch‑ups</strong></div>
+          <p>Room refreshes, accent walls, trim touch‑ups, and exterior spot work with clean finishes.</p>
+        </article>
+        <article class="card">
+          <div><span class="badge">🪚</span><strong>Carpentry</strong></div>
+          <p>Small builds, cabinetry adjustments, baseboards, crown molding, and repairs.</p>
+        </article>
+        <article class="card">
+          <div><span class="badge">🧱</span><strong>Tile & Flooring</strong></div>
+          <p>Backsplashes, small tile jobs, grout repair, vinyl plank installs, transitions, and thresholds.</p>
+        </article>
+        <article class="card">
+          <div><span class="badge">🏡</span><strong>Outdoor & Misc.</strong></div>
+          <p>Fence fixes, gate hardware, mailbox installs, pressure washing, and honey‑do lists.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="about" style="background:var(--gray-100)">
+    <div class="container about-grid">
+      <div>
+        <h2>About Gelman Solutions</h2>
+        <p class="sub">Locally owned. Quality‑focused. Straightforward.</p>
+        <p>We keep projects simple and professional—from the first message to final clean‑up. Expect punctuality, tidy work areas, and results you’ll feel good about.</p>
+        <ul class="checks">
+          <li><span class="dot">•</span> Clear, upfront estimates</li>
+          <li><span class="dot">•</span> Respect for your time and home</li>
+          <li><span class="dot">•</span> Insured and craftsmanship‑driven</li>
+        </ul>
+      </div>
+      <div class="frame">
+        <img style="border-radius: 8px;" src="https://paintdenver.com/wp-content/uploads/2013/10/shutterstock_776602372-1-scaled.jpg" alt="Handyman at work">
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="container" style="max-width:760px">
+      <h2>Contact Us</h2>
+      <p class="sub">Tell us about your project. We’ll respond within one business day.</p>
+
+      <form action="mailto:info@gelman-solutions.example" method="post" enctype="text/plain">
+        <div class="grid-2">
+          <div>
+            <label for="name">Name</label>
+            <input id="name" name="Name" type="text" placeholder="Your full name" required>
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input id="email" name="Email" type="email" placeholder="you@example.com" required>
+          </div>
+        </div>
+        <div style="margin-top:1rem">
+          <label for="phone">Phone (optional)</label>
+          <input id="phone" name="Phone" type="tel" placeholder="(555) 555‑5555">
+        </div>
+        <div style="margin-top:1rem">
+          <label for="message">Message</label>
+          <textarea id="message" name="Message" rows="6" placeholder="Briefly describe your project" required></textarea>
+        </div>
+        <div style="margin-top:1rem;display:flex;gap:.75rem;align-items:center;justify-content:space-between;flex-wrap:wrap">
+          <button class="btn btn-primary" type="submit">Send</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container" style="display:flex;gap:1rem;justify-content:space-between;align-items:center;flex-wrap:wrap">
+      <div style="display:flex;align-items:center;gap:.5rem">
+        <span style="display:inline-grid;place-items:center;width:24px;height:24px;border-radius:6px;background:var(--red);color:#000;font-weight:800">G</span>
+        <span>© <span id="y"></span> Gelman Solutions</span>
+      </div>
+      <div class="muted">White • Black • Red palette • Clean & responsive</div>
+    </div>
+    <script>document.getElementById('y').textContent=new Date().getFullYear();</script>
+  </footer>
+</body>
+</html>
