@@ -1,315 +1,755 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="he" dir="rtl">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Gelman Solutions | Handyman Services</title>
-  <meta name="description" content="Gelman Solutions — reliable, professional handyman services." />
-    <style>  
-    :root{  
-      --red:#E63946;  
-      --black:#111111;  
-      --gray-900:#1f2937;  
-      --gray-700:#374151;  
-      --gray-500:#6b7280;  
-      --gray-200:#e5e7eb;  
-      --gray-100:#f5f5f5;  
-      --white:#ffffff;  
-      --max:1100px;  
-    }  
-    /* Reset + base */  
-    *,*::before,*::after{box-sizing:border-box}  
-    html,body{margin:0;padding:0}  
-    body{  
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;  
-      color: var(--black);  
-      background: var(--white);  
-      line-height: 1.6;  
-    }  
-    img{max-width:100%;display:block}  
-    a{color:inherit;text-decoration:none}  
-    /* Layout helpers */  
-    .container{max-width:var(--max);margin:0 auto;padding:0 1rem}  
-    .btn{  
-      display:inline-block;  
-      padding:.75rem 1rem;  
-      font-weight:600;  
-      border-radius:.5rem;  
-      border:1px solid transparent;  
-      cursor:pointer;  
-      transition:.15s ease-in-out;  
-    }  
-    .btn-primary{background:var(--red);color:#fff}  
-    .btn-primary:hover{opacity:.9}  
-    .btn-outline{border-color:var(--red);color:var(--red);background:transparent}  
-    .btn-outline:hover{background:var(--red);color:#fff}  
-    /* Header */  
-    header{  
-      position: sticky; top:0; z-index:10;  
-      background: rgba(255,255,255,.98);  
-      backdrop-filter: saturate(1.2) blur(6px);  
-      border-bottom:1px solid var(--gray-200);  
-    }  
-    .nav{  
-      display:flex;align-items:center;justify-content:space-between;height:72px;  
-    }  
-    .brand{display:flex;gap:.75rem;align-items:center}  
-    .brand-text{line-height:1}  
-    .brand-title{font-size:1.6rem;font-weight:800;letter-spacing:.4px}  
-    .brand-sub{font-size:.7rem;letter-spacing:.28em;color:var(--gray-500);margin-top:.1rem}  
-    .nav-links{display:flex;gap:.5rem;align-items:center}  
-    .nav-links a{  
-      padding:.5rem .75rem;border-radius:.4rem;font-weight:600;color:#222;  
-    }  
-    .nav-links a:hover{background:var(--gray-100)}  
-    /* Hero */  
-    .hero{background:var(--gray-100);padding:3rem 0}  
-    .hero-grid{  
-      display:grid;gap:2rem;align-items:center;  
-      grid-template-columns: 1fr;  
-    }  
-    .hero h1{font-size:2.2rem;line-height:1.2;margin:.25rem 0}  
-    .hero p{color:var(--gray-700);margin-top:.75rem}  
-    .hero .actions{margin-top:1rem;display:flex;gap:.75rem;flex-wrap:wrap}  
-    .hero .frame{  
-      border:1px solid var(--gray-200);border-radius:1rem;background:#fff;  
-      padding:.5rem;  
-    }  
-    /* Section */  
-    section{padding:3rem 0}  
-    section h2{font-size:1.8rem;line-height:1.25;margin:0}  
-    section .sub{color:var(--gray-700);margin-top:.35rem}  
-    /* Services */  
-    .cards{  
-      margin-top:1.25rem;  
-      display:grid;gap:1rem;  
-      grid-template-columns: 1fr;  
-    }  
-    .card{  
-      border:1px solid var(--gray-200);border-radius:.8rem;background:#fff;padding:1rem;  
-    }  
-    .card h3{margin:.25rem 0;font-size:1.05rem}  
-    .badge{  
-      width:40px;height:40px;border-radius:999px;display:inline-grid;place-items:center;  
-      background: color-mix(in oklab, var(--red) 12%, white);  
-      color:var(--red);font-size:1.1rem;margin-right:.5rem;  
-    }  
-    .card p{color:var(--gray-700);font-size:.95rem;margin:.35rem 0 0}  
-    /* About */  
-    .about-grid{  
-      display:grid;gap:2rem;grid-template-columns: 1fr;  
-      align-items:center;  
-    }  
-    .about .frame{border:1px solid var(--gray-200);border-radius:1rem;background:#fff;padding:.5rem}  
-    ul.checks{list-style:none;padding:0;margin:1rem 0 0}  
-    ul.checks li{display:flex;gap:.5rem;align-items:flex-start;margin:.35rem 0;color:var(--gray-900)}  
-    ul.checks .dot{color:var(--red);font-weight:700}  
-    /* Contact */  
-    form{margin-top:1rem}  
-    .grid-2{display:grid;gap:1rem}  
-    label{display:block;font-size:.9rem;font-weight:700;margin-bottom:.35rem}  
-    input, textarea{  
-      width:100%;padding:.75rem;border:1px solid var(--gray-200);border-radius:.6rem;  
-      font:inherit;outline:none;transition:border-color .15s, box-shadow .15s;  
-      background:#fff;  
-    }  
-    input:focus, textarea:focus{border-color:var(--red);box-shadow:0 0 0 3px color-mix(in oklab, var(--red) 18%, transparent)}  
-    .muted{color:var(--gray-500);font-size:.9rem}  
-    .previews{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.5rem}  
-    .thumb{width:72px;height:72px;object-fit:cover;border:1px solid var(--gray-200);border-radius:8px}  
-    /* Footer */  
-    footer{border-top:1px solid var(--gray-200);padding:1.25rem 0;color:var(--gray-700);font-size:.9rem}  
-    /* Responsive */  
-    @media (min-width: 720px){  
-      .hero-grid{grid-template-columns: 1.1fr .9fr}  
-      .cards{grid-template-columns: repeat(3, 1fr)}  
-      .about-grid{grid-template-columns: 1fr 1fr}  
-      .grid-2{grid-template-columns: repeat(2, 1fr)}  
-      .hero h1{font-size:2.6rem}  
-    }  
+  <title>Gelman Solutions | שירותי הנדימן</title>
+  <meta name="description" content="Gelman Solutions — שירותי הנדימן אמינים ומקצועיים." />
+  <style>
+    :root{
+      --red:#E63946;
+      --black:#111111;
+      --gray-900:#1f2937;
+      --gray-700:#374151;
+      --gray-500:#6b7280;
+      --gray-200:#e5e7eb;
+      --gray-100:#f5f5f5;
+      --white:#ffffff;
+      --max:1100px;
+    }
+    /* Reset + base */
+    *,*::before,*::after{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans Hebrew", "Rubik", sans-serif;
+      color: var(--black);
+      background: var(--white);
+      line-height: 1.6;
+      direction: rtl;
+      text-align: right;
+    }
+    img{max-width:100%;display:block;}
+    a{color:inherit;text-decoration:none}
+    /* Layout helpers */
+    .container{max-width:var(--max);margin:0 auto;padding:0 1rem}
+    .btn{
+      display:inline-block;
+      padding:.75rem 1rem;
+      font-weight:600;
+      border-radius:.5rem;
+      border:1px solid transparent;
+      cursor:pointer;
+      transition:.15s ease-in-out;
+    }
+    .btn-primary{background:var(--red);color:#fff}
+    .btn-primary:hover{opacity:.9}
+    .btn-outline{border-color:var(--red);color:var(--red);background:transparent}
+    .btn-outline:hover{background:var(--red);color:#fff}
+    /* Header */
+    header{
+      position: sticky; top:0; z-index:10;
+      background: #f9f9f9;
+      backdrop-filter: saturate(1.2) blur(6px);
+      border-bottom:1px solid var(--gray-200);
+    }
+    .nav{
+      display:flex;align-items:center;justify-content:space-between;height:72px;
+      flex-direction: row;
+    }
+    .brand{display:flex;gap:.75rem;align-items:center;flex-direction: row-reverse}
+    .brand-text{line-height:1;text-align:right}
+    .brand-title{font-size:1.6rem;font-weight:800;letter-spacing:.4px}
+    .brand-sub{font-size:.7rem;letter-spacing:.28em;color:var(--gray-500);margin-top:.1rem}
+    .nav-links{display:flex;gap:.5rem;align-items:center;flex-direction: row-reverse}
+    .nav-links a{
+      padding:.5rem .75rem;border-radius:.4rem;font-weight:600;color:#222;
+    }
+    .nav-links a:hover{background:var(--gray-100)}
+
+    /* Language switcher buttons — UPDATED FLAGS */
+    .lang-switch{display:flex;gap:.5rem;align-items:center;flex-direction: row-reverse}
+    .lang-btn{
+      display:inline-flex;align-items:center;gap:.4rem;
+      padding:.4rem .6rem;border-radius:.45rem;
+      border:1px solid var(--gray-200);background:#fff;color:var(--black);font-weight:700;cursor:pointer;
+    }
+    .lang-btn[aria-pressed="true"]{border-color:var(--red);box-shadow:0 0 0 3px color-mix(in oklab, var(--red) 14%, transparent)}
+    .flag{width:18px;height:12px;border:1px solid var(--gray-200);border-radius:2px;display:inline-block}
+
+    /* Hero */
+    .hero{background:var(#fff);padding:3rem 0}
+    .hero-grid{
+      display:grid;gap:2rem;align-items:center;
+      grid-template-columns: 1fr;
+    }
+    .hero h1{font-size:2.2rem;line-height:1.2;margin:.25rem 0}
+    .hero p{color:var(--gray-700);margin-top:.75rem}
+    .hero .actions{margin-top:1rem;display:flex;gap:.75rem;flex-wrap:wrap;flex-direction: row-reverse}
+    .hero{
+      border:1px solid var(--gray-200);border-radius:1rem;background:#fff;
+      padding:.5rem;
+    }
+    .frame{padding:2rem;}
+    /* Section */
+    section{padding:3rem 0}
+    section h2{font-size:1.8rem;line-height:1.25;margin:0}
+    section .sub{color:var(--gray-700);margin-top:.35rem}
+    /* Services */
+    .cards{
+      margin-top:1.25rem;
+      display:grid;gap:1rem;
+      grid-template-columns: 1fr;
+    }
+    .card{
+      border:1px solid var(--gray-200);border-radius:.8rem;background:#fff;padding:1rem;
+    }
+    .card h3{margin:.25rem 0;font-size:1.05rem}
     
-    /* Contact tweaks (scoped) */
-.wa-card { border-color: var(--gray-200); }
-@media (min-width: 720px){
-  .wa-card { position: sticky; top: 1rem; }
-}
-  </style>  
+    /* FIXED BADGE ALIGNMENT - works for both RTL and LTR */
+    .badge{
+      width:40px;height:40px;border-radius:999px;display:inline-grid;place-items:center;
+      background: color-mix(in oklab, var(--red) 12%, white);
+      color:var(--red);font-size:1.1rem;
+      flex-shrink: 0; /* Prevents badge from shrinking */
+    }
+    .card > div:first-child {
+      display:flex;
+      align-items:center;
+      gap:.75rem;
+    }
+    /* RTL: badge on the right, text on the left */
+    [dir="rtl"] .card > div:first-child {
+      flex-direction: row;
+    }
+    /* LTR: badge on the left, text on the right */
+    [dir="ltr"] .card > div:first-child {
+      flex-direction: row;
+    }
+    
+    .card p{color:var(--gray-700);font-size:.95rem;margin:.35rem 0 0}
+    
+    /* About */
+    .about-grid{
+      display:grid;gap:2rem;grid-template-columns: 1fr;
+      align-items:center;
+    }
+    .about .frame{border:1px solid var(--gray-200);border-radius:1rem;background:#fff;padding:.5rem}
+    ul.checks{list-style:none;padding:0;margin:1rem 0 0}
+    ul.checks li{display:flex;gap:.5rem;align-items:flex-start;margin:.35rem 0;color:var(--gray-900)}
+    ul.checks .dot{color:var(--red);font-weight:700}
+    
+    /* Contact */
+    form{margin-top:1rem}
+    .grid-2{display:grid;gap:1rem}
+    label{display:block;font-size:.9rem;font-weight:700;margin-bottom:.35rem}
+    input, textarea{
+      width:100%;padding:.75rem;border:1px solid var(--gray-200);border-radius:.6rem;
+      font:inherit;outline:none;transition:border-color .15s, box-shadow .15s;
+      background:#fff;
+    }
+    input:focus, textarea:focus{border-color:var(--red);box-shadow:0 0 0 3px color-mix(in oklab, var(--red) 18%, transparent)}
+    .muted{color:var(--gray-500);font-size:.9rem}
+    .previews{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.5rem;flex-direction: row-reverse}
+    .thumb{width:72px;height:72px;object-fit:cover;border:1px solid var(--gray-200);border-radius:8px}
+    
+    /* WhatsApp card styles - ADDED */
+    .wa-card {
+      background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+      color: white;
+      border: none;
+    }
+    .wa-card h3 {
+      color: white;
+    }
+    .wa-card .muted {
+      color: rgba(255,255,255,0.9);
+    }
+    .wa-card .checks .dot {
+      color: #ffffff;
+    }
+    .wa-card .btn-outline {
+      border-color: white;
+      color: white;
+      background: transparent;
+    }
+    .wa-card .btn-outline:hover {
+      background: white;
+      color: #25d366;
+    }
+    
+    /* Footer */
+    footer{border-top:1px solid var(--gray-200);padding:1.25rem 0;color:var(--gray-700);font-size:.9rem}
+    /* Responsive */
+    @media (min-width: 720px){
+      .hero-grid{grid-template-columns: 1.1fr .9fr}
+      .cards{grid-template-columns: repeat(3, 1fr)}
+      .about-grid{grid-template-columns: 1fr 1fr}
+      .grid-2{grid-template-columns: repeat(2, 1fr)}
+      .hero h1{font-size:2.6rem}
+    }
+
+    /* Language visibility control */
+    [data-lang]{display:none}
+    [data-lang].active{display:block}
+
+    /* LTR helper for EN/RU blocks only */
+    .ltr{direction:ltr;text-align:left}
+    .ltr .nav-links{flex-direction: row}
+    .ltr .hero .actions{flex-direction: row}
+    .ltr .brand{flex-direction: row}
+    .ltr .previews{flex-direction: row}
+  </style>
 </head>
 <body>
   <!-- Header -->
   <header>
     <div class="container nav">
-      <a href="#home" class="brand" aria-label="Gelman Solutions Home">
-        <!-- Replace src with your actual logo file path -->
-        <img src="/GelmanSolutions - Logo 2.png" alt="Gelman Solutions logo" style="height:40px;width:40px;object-fit:contain" />
+      <a href="#home" class="brand" aria-label="Gelman Solutions Home" style="justify-content:flex-end">
+        <!-- הלוגו ושם החברה באנגלית, מיושרים לימין -->
+        <img src="/Assets/GelmanSolutions - Logo 2.png" alt="Gelman Solutions logo" style="height:40px;width:40px;object-fit:contain" />
         <div class="brand-text">
           <div class="brand-title">GELMAN</div>
           <div class="brand-sub">SOLUTIONS</div>
         </div>
       </a>
-      <nav class="nav-links" aria-label="Main navigation">
-        <a href="#services">Services</a>
-        <a href="#about">About</a>
-        <a href="#contact" class="btn btn-primary" style="padding:.5rem .9rem">Get a Quote</a>
+
+      <!-- Language switcher — UPDATED WITH CORRECT FLAGS -->
+      <div class="lang-switch" role="group" aria-label="Language switcher">
+        <button type="button" class="lang-btn" data-lang-code="he" aria-pressed="true" title="עברית">
+          <!-- Israel flag: blue and white stripes with Star of David -->
+          <span class="flag" aria-hidden="true" style="background: linear-gradient(to bottom, #0038b8 0%, #0038b8 20%, #fff 20%, #fff 40%, #fff 40%, #fff 60%, #fff 60%, #fff 80%, #0038b8 80%, #0038b8 100%); position: relative;">
+            <span style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #0038b8; font-size: 8px; padding-bottom: 2.35px;">✡</span>
+          </span>
+        </button>
+        <button type="button" class="lang-btn" data-lang-code="en" aria-pressed="false" title="English">
+          <!-- US flag: red, white, and blue with stars and stripes pattern -->
+          <span class="flag" aria-hidden="true" style="background: linear-gradient(to bottom, #b22234 0%, #b22234 8%, #fff 8%, #fff 15%, #b22234 15%, #b22234 23%, #fff 23%, #fff 31%, #b22234 31%, #b22234 38%, #fff 38%, #fff 46%, #b22234 46%, #b22234 54%, #fff 54%, #fff 62%, #b22234 62%, #b22234 69%, #fff 69%, #fff 77%, #b22234 77%, #b22234 85%, #fff 85%, #fff 92%, #b22234 92%, #b22234 100%); position: relative;">
+            <span style="position: absolute; top: 0; left: 0; width: 40%; height: 54%; background: #3c3b6e;"></span>
+          </span>
+        </button>
+        <button type="button" class="lang-btn" data-lang-code="ru" aria-pressed="false" title="Русский">
+          <!-- Russian flag: white, blue, red horizontal stripes -->
+          <span class="flag" aria-hidden="true" style="background: linear-gradient(to bottom, #fff 0%, #fff 33.33%, #0039a6 33.33%, #0039a6 66.66%, #d52b1e 66.66%, #d52b1e 100%)"></span>
+        </button>
+      </div>
+
+      <nav class="nav-links" aria-label="Main navigation" style="direction: ltr;">
+        <a href="#services">שירותים</a>
+        <a href="#about">עלינו</a>
+        <a href="#contact" class="btn btn-primary" style="padding:.5rem .9rem">קבלת הצעת מחיר</a>
       </nav>
     </div>
   </header>
 
-  <!-- Hero -->
-  <section id="home" class="hero">
-    <div class="container hero-grid">
-      <div>
-        <p class="muted" style="text-transform:uppercase;letter-spacing:.18em">Welcome</p>
-        <h1>Reliable Handyman Services, Done Right.</h1>
-        <p>From small fixes to weekend‑size projects, Gelman Solutions delivers clean workmanship, clear communication, and fair pricing.</p>
-        <div class="actions">
-          <a href="#services" class="btn btn-outline">Explore Services</a>
-          <a href="#contact" class="btn btn-primary">Request a Quote</a>
+  <!-- Language blocks wrapper -->
+  <main>
+    <!-- Hebrew block: original content, RTL, default active -->
+    <div data-lang="he" class="active" lang="he" dir="rtl">
+      <!-- Hero -->
+      <section id="home" class="hero">
+        <div class="container hero-grid">
+          <div>
+            <p class="muted" style="text-transform:uppercase;letter-spacing:.18em">ברוכים הבאים</p>
+            <h1>שירותי הנדימן אמינים — כמו שצריך.</h1>
+            <p>מתיקונים קטנים ועד פרויקטים של סוף‑שבוע, Gelman Solutions מספקת עבודה נקייה, תקשורת ברורה ותמחור הוגן.</p>
+            <div class="actions">
+              <a href="#services" class="btn btn-outline">צפו בשירותים</a>
+              <a href="#contact" class="btn btn-primary">בקשת הצעת מחיר</a>
+            </div>
+          </div>
+          <div class="frame">
+            <img src="https://m.media-amazon.com/images/I/711pTh86caS._UF894,1000_QL80_.jpg" alt="כלי עבודה על שולחן">
+          </div>
         </div>
-      </div>
-      <div class="frame">
-        <!-- Replace with your own photo if desired -->
-        <img src="https://m.media-amazon.com/images/I/711pTh86caS._UF894,1000_QL80_.jpg" alt="Handyman tools on a workbench">
-      </div>
-    </div>
-  </section>
+      </section>
 
-  <!-- Services -->
-  <section id="services">
-    <div class="container">
-      <h2>Services</h2>
-      <p class="sub">Core handyman offerings for homes and small businesses.</p>
+      <!-- Services -->
+      <section id="services" style="background: var(--gray-100);">
+        <div class="container">
+          <h2>שירותים</h2>
+          <p class="sub">השירותים המרכזיים לבית ולעסקים קטנים.</p>
 
-      <div class="cards">
-        <article class="card">
-          <div><span class="badge">🛠️</span><strong>Repairs & Maintenance</strong></div>
-          <p>Doors, trim, drywall patches, leak fixes, caulking, hardware replacement, and seasonal upkeep.</p>
-        </article>
-        <article class="card">
-          <div><span class="badge">🔧</span><strong>Installations</strong></div>
-          <p>TV mounting, shelves, fixtures, faucets, smart devices, curtain rods, blinds, and appliances.</p>
-        </article>
-        <article class="card">
-          <div><span class="badge">🎨</span><strong>Painting & Touch‑ups</strong></div>
-          <p>Room refreshes, accent walls, trim touch‑ups, and exterior spot work with clean finishes.</p>
-        </article>
-        <article class="card">
-          <div><span class="badge">🪚</span><strong>Carpentry</strong></div>
-          <p>Small builds, cabinetry adjustments, baseboards, crown molding, and repairs.</p>
-        </article>
-        <article class="card">
-          <div><span class="badge">🧱</span><strong>Tile & Flooring</strong></div>
-          <p>Backsplashes, small tile jobs, grout repair, vinyl plank installs, transitions, and thresholds.</p>
-        </article>
-        <article class="card">
-          <div><span class="badge">🏡</span><strong>Outdoor & Misc.</strong></div>
-          <p>Fence fixes, gate hardware, mailbox installs, pressure washing, and honey‑do lists.</p>
-        </article>
-      </div>
-    </div>
-  </section>
+          <div class="cards">
+            <article class="card">
+              <div><span class="badge">🛠️</span><strong>תיקונים ותחזוקה</strong></div>
+              <p>דלתות, משקופים, תיקוני קיר גבס, טיפול בנזילות, סיליקון, החלפת אביזרי בית ותחזוקה עונתית.</p>
+            </article>
+            <article class="card">
+              <div><span class="badge">🔧</span><strong>התקנות</strong></div>
+              <p>תליית טלוויזיות ומדפים, התקנת גופי תאורה וברזים, התקנת התקנים חכמים, וילונות ותריסים, ומכשירי חשמל.</p>
+            </article>
+            <article class="card">
+              <div><span class="badge">🎨</span><strong>צביעה ותיקוני גמר</strong></div>
+              <p>רענון חדרים, קירות דגש, תיקוני צבע במשקופים ובחוץ עם גימור נקי.</p>
+            </article>
+            <article class="card">
+              <div><span class="badge">🪚</span><strong>נגרות</strong></div>
+              <p>בניות קטנות, התאמות ארונות, פאנלים, קרניזים ותיקונים.</p>
+            </article>
+            <article class="card">
+              <div><span class="badge">🧱</span><strong>ריצוף וחיפוי</strong></div>
+              <p>שיש/קרמיקה במטבחים, עבודות קטנות של אריחים, תיקון רובה, התקנת LVP, וספי מעבר.</p>
+            </article>
+            <article class="card">
+              <div><span class="badge">🏡</span><strong>חוץ ושונות</strong></div>
+              <p>תיקון גדרות, חומרה לשערים, התקנת תיבות דואר, שטיפת לחץ ורשימות "לתקן בבית".</p>
+            </article>
+          </div>
+        </div>
+      </section>
 
-  <!-- About -->
-  <section id="about" class="about" style="background:var(--gray-100)">
-    <div class="container about-grid">
-      <div>
-        <h2>About Gelman Solutions</h2>
-        <p class="sub">Locally owned. Quality‑focused. Straightforward.</p>
-        <p>We keep projects simple and professional—from the first message to final clean‑up. Expect punctuality, tidy work areas, and results you’ll feel good about.</p>
-        <ul class="checks">
-          <li><span class="dot">•</span> Clear, upfront estimates</li>
-          <li><span class="dot">•</span> Respect for your time and home</li>
-          <li><span class="dot">•</span> Insured and craftsmanship‑driven</li>
-        </ul>
-      </div>
-      <div class="frame">
-        <img style="border-radius: 8px;" src="https://paintdenver.com/wp-content/uploads/2013/10/shutterstock_776602372-1-scaled.jpg" alt="Handyman at work">
-      </div>
-    </div>
-  </section>
+      <!-- About -->
+      <section id="about" class="about" style="background: #fff">
+        <div class="container about-grid">
+          <div>
+            <h2>Gelman Solutions</h2>
+            <p class="sub">עסק מקומי, ממוקד איכות, בלי סיבוכים.</p>
+            <p>אנחנו שומרים על תהליך פשוט ומקצועי — מההודעה הראשונה ועד לניקיון הסופי. תצפו לדייקנות, אזורי עבודה מסודרים ותוצאה שתהיו גאים בה.</p>
+            <ul class="checks">
+              <li><span class="dot">•</span> הצעות מחיר ברורות ושקופות</li>
+              <li><span class="dot">•</span> כבוד לזמן ולמרחב שלכם</li>
+              <li><span class="dot">•</span> מבוטחים ועובדים בסטנדרט גבוה</li>
+            </ul>
+          </div>
+          <div class="frame">
+            <img style="border-radius: 8px;" src="https://paintdenver.com/wp-content/uploads/2013/10/shutterstock_776602372-1-scaled.jpg" alt="הנדימן בעבודה">
+          </div>
+        </div>
+      </section>
 
-<section id="contact" style="background: var(--gray-100)">
-  <div class="container">
-    <h2>Contact Us</h2>
-    <p class="sub">Tell us about your project — we’ll respond within one business day.</p>
+      <!-- Contact -->
+      <section id="contact" style="background: var(--gray-100);">
+        <div class="container" style="max-width:760px">
+          <h2>צרו קשר</h2>
+          <p class="sub">ספרו לנו על הפרויקט שלכם. נשיב בתוך שני ימי עסקים.</p>
 
-    <div class="grid-2" style="margin-top:1rem; align-items:start">
-      <!-- Column 1: Email form -->
-      <article class="card">
-        <h3 style="margin-top:0">Email us</h3>
-        <p class="muted" style="margin-top:.25rem">Share a few details and we’ll get back to you.</p>
-
-        <!-- Tip: replace mailto with a secure HTTPS endpoint (e.g., Formspree) to remove the browser “insecure form” notice -->
-        <form action="mailto:info@your-domain.com" method="POST" enctype="text/plain">
           <div class="grid-2">
+            <!-- Column 1: Contact form -->
             <div>
-              <label for="name">Name</label>
-              <input id="name" name="Name" type="text" placeholder="Your full name" autocomplete="name" required>
+              <form action="mailto:info@gelman-solutions.example" method="post" enctype="text/plain">
+                <div class="grid-2">
+                  <div>
+                    <label for="name">שם</label>
+                    <input id="name" name="Name" type="text" placeholder="שם מלא" required>
+                  </div>
+                  <div>
+                    <label for="email">אימייל</label>
+                    <input id="email" name="Email" type="email" placeholder="you@example.com" required>
+                  </div>
+                </div>
+                <div style="margin-top:1rem">
+                  <label for="phone">טלפון (לא חובה)</label>
+                  <input style="text-align: right;" id="phone" name="Phone" type="tel" placeholder="05X-XXXXXXX">
+                </div>
+
+                <div style="margin-top:1rem">
+                  <label for="message">הודעה</label>
+                  <textarea id="message" name="Message" rows="6" placeholder="תארו בקצרה את הפרויקט" lang="he"dir="rtl" required></textarea>
+                </div>
+
+                <div style="margin-top:1rem;display:flex;gap:.75rem;align-items:center;justify-content:space-between;flex-wrap:wrap;flex-direction: row-reverse">
+                  <button class="btn btn-primary" type="submit" style="width: 100%; font-size: 16px;">שליחה</button>
+                </div>
+              </form>
             </div>
-            <div>
-              <label for="email">Email</label>
-              <input id="email" name="Email" type="email" placeholder="you@example.com" autocomplete="email" required>
-            </div>
+            
+            <!-- Column 2: WhatsApp card -->
+            <aside class="card wa-card">
+              <h3 style="margin-top:0">שאלו בוואטסאפ</h3>
+              <p class="muted" style="margin-top:.25rem">
+                מעדיפים צ'אט מהיר? שלחו לנו הודעה בוואטסאפ — מושלם לשאלות מהירות ושיתוף תמונות.
+              </p>
+
+              <ul class="checks" style="margin-top:.75rem">
+                <li><span class="dot">•</span> שאלות מהירות ותמחור</li>
+                <li><span class="dot">•</span> שיתוף צילומי מסך ורעיונות</li>
+                <li><span class="dot">•</span> שעות עבודה: א׳–ה׳, 9:00–18:00</li>
+              </ul>
+              <a
+                class="btn btn-outline"
+                style="margin-top:1rem; text-align:center; width: 100%;"
+                href="https://wa.me/972542133201?text=שלום%20Gelman%20Solutions%2C%20אני%20מעוניין%20לדבר%20על%20פרויקט."
+                target="_blank"
+                rel="noopener"
+                aria-label="פתח צ'אט וואטסאפ עם Gelman Solutions"
+              >
+                💬 צ'אט בוואטסאפ
+              </a>
+
+              <small class="muted" style="display:block; margin-top:.5rem;">וואטסאפ: 054-213-3201</small>
+            </aside>
           </div>
-
-          <div style="margin-top:1rem">
-            <label for="phone">Phone (optional)</label>
-            <input id="phone" name="Phone" type="tel" placeholder="(555) 555-5555" autocomplete="tel">
-          </div>
-
-          <div style="margin-top:1rem">
-            <label for="message">Message</label>
-            <textarea id="message" name="Message" rows="6" placeholder="Briefly describe your project" required></textarea>
-          </div>
-
-          <div style="margin-top:1rem; display:flex; gap:.75rem; flex-wrap:wrap; align-items:center">
-            <button type="submit" class="btn btn-primary">Send Email</button>
-            <span class="muted">Typical reply: within 1 business day</span>
-          </div>
-        </form>
-      </article>
-
-      <!-- Column 2: WhatsApp card -->
-      <aside class="card wa-card">
-        <h3 style="margin-top:0">Ask on WhatsApp</h3>
-        <p class="muted" style="margin-top:.25rem">
-          Prefer a quick chat? Message us on WhatsApp — perfect for fast questions and sharing photos.
-        </p>
-
-        <ul class="checks" style="margin-top:.75rem">
-          <li><span class="dot">•</span> Fast questions and pricing</li>
-          <li><span class="dot">•</span> Share screenshots and ideas</li>
-          <li><span class="dot">•</span> Business hours: Sun–Thu, 9:00–18:00</li>
-        </ul>
-
-        <a
-          class="btn btn-outline"
-          style="margin-top:1rem; width:100%; text-align:center"
-          href="https://wa.me/972542133201?text=Hi%20Gelman%20Solutions%2C%20I%27d%20like%20to%20discuss%20a%20project."
-          target="_blank"
-          rel="noopener"
-          aria-label="Open WhatsApp chat with Gelman Solutions"
-        >
-          💬 Chat on WhatsApp
-        </a>
-
-        <small class="muted" style="display:block; margin-top:.5rem">WhatsApp: +972 54‑213‑3201</small>
-      </aside>
+        </div>
+      </section>
     </div>
-  </div>
-</section>
+
+    <!-- English block: LTR, Israeli norms kept where relevant -->
+    <div data-lang="en" lang="en" dir="ltr" class="ltr" aria-hidden="true">
+      <section id="home-en" class="hero">
+        <div class="container hero-grid">
+          <div>
+            <p class="muted" style="text-transform:uppercase;letter-spacing:.18em">Welcome</p>
+            <h1>Reliable handyman services — done right.</h1>
+            <p>From small fixes to weekend projects, Gelman Solutions delivers clean work, clear communication, and fair pricing.</p>
+            <div class="actions">
+              <a href="#services-en" class="btn btn-outline">View Services</a>
+              <a href="#contact-en" class="btn btn-primary">Request a Quote</a>
+            </div>
+          </div>
+          <div class="frame">
+            <img src="https://m.media-amazon.com/images/I/711pTh86caS._UF894,1000_QL80_.jpg" alt="Tools on a workbench">
+          </div>
+        </div>
+      </section>
+
+      <section id="services-en" style="background: var(--gray-100);">
+        <div class="container">
+          <h2>Services</h2>
+          <p class="sub">Core services for homes and small businesses.</p>
+
+          <div class="cards">
+            <article class="card">
+              <div><span class="badge">🛠️</span><strong>Repairs & Maintenance</strong></div>
+              <p>Doors, frames, drywall repairs, leak handling, silicone, fixture replacements, and seasonal upkeep.</p>
+            </article>
+            <article class="card">
+              <div><span class="badge">🔧</span><strong>Installations</strong></div>
+              <p>TVs and shelves, light fixtures and faucets, smart devices, curtains and blinds, and appliances.</p>
+            </article>
+            <article class="card">
+              <div><span class="badge">🎨</span><strong>Painting & Touch-ups</strong></div>
+              <p>Room refresh, accent walls, trim and exterior touch-ups with a clean finish.</p>
+            </article>
+            <article class="card">
+              <div><span class="badge">🪚</span><strong>Carpentry</strong></div>
+              <p>Small builds, cabinet adjustments, baseboards, crown molding, and repairs.</p>
+            </article>
+            <article class="card">
+              <div><span class="badge">🧱</span><strong>Flooring & Tiling</strong></div>
+              <p>Kitchen stone/ceramic, small tile jobs, grout repairs, LVP installation, and transitions.</p>
+            </article>
+            <article class="card">
+              <div><span class="badge">🏡</span><strong>Outdoor & Misc</strong></div>
+              <p>Fence fixes, gate hardware, mailbox installs, pressure washing, and punch lists.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="about-en" class="about" style="background: #fff">
+        <div class="container about-grid">
+          <div>
+            <h2>Gelman Solutions</h2>
+            <p class="sub">Local, quality‑focused, no fuss.</p>
+            <p>We keep it simple and professional—from first message to final cleanup. Expect punctuality, tidy work areas, and results you'll be proud of.</p>
+            <ul class="checks">
+              <li><span class="dot">•</span> Clear, transparent estimates</li>
+              <li><span class="dot">•</span> Respect for your time and space</li>
+              <li><span class="dot">•</span> Fully insured, high‑standard work</li>
+            </ul>
+          </div>
+          <div class="frame">
+            <img style="border-radius: 8px;" src="https://paintdenver.com/wp-content/uploads/2013/10/shutterstock_776602372-1-scaled.jpg" alt="Handyman at work">
+          </div>
+        </div>
+      </section>
+
+      <section id="contact-en" style="background: var(--gray-100);">
+        <div class="container" style="max-width:760px">
+          <h2>Contact</h2>
+          <p class="sub">Tell us about your project. We reply within two business days.</p>
+
+          <div class="grid-2">
+            <!-- Column 1: Contact form -->
+            <div>
+              <form action="mailto:info@gelman-solutions.example" method="post" enctype="text/plain">
+                <div class="grid-2">
+                  <div>
+                    <label for="name-en">Name</label>
+                    <input id="name-en" name="Name" type="text" placeholder="Full name" required>
+                  </div>
+                  <div>
+                    <label for="email-en">Email</label>
+                    <input id="email-en" name="Email" type="email" placeholder="you@example.com" required>
+                  </div>
+                </div>
+                <div style="margin-top:1rem">
+                  <label for="phone-en">Phone (optional)</label>
+                  <input id="phone-en" name="Phone" type="tel" placeholder="05X-XXXXXXX">
+                </div>
+
+                <div style="margin-top:1rem">
+                  <label for="message-en">Message</label>
+                  <textarea id="message-en" name="Message" rows="6" placeholder="Briefly describe your project" required></textarea>
+                </div>
+
+                <div style="margin-top:1rem;display:flex;gap:.75rem;align-items:center;justify-content:space-between;flex-wrap:wrap;">
+                  <button class="btn btn-primary" type="submit" style="width: 100%;">Send</button>
+                </div>
+              </form>
+            </div>
+            
+            <!-- Column 2: WhatsApp card -->
+            <aside class="card wa-card">
+              <h3 style="margin-top:0">Ask on WhatsApp</h3>
+              <p class="muted" style="margin-top:.25rem">
+                Prefer a quick chat? Message us on WhatsApp — perfect for fast questions and sharing photos.
+              </p>
+
+              <ul class="checks" style="margin-top:.75rem">
+                <li><span class="dot">•</span> Fast questions and pricing</li>
+                <li><span class="dot">•</span> Share screenshots and ideas</li>
+                <li><span class="dot">•</span> Business hours: Sun–Thu, 9:00–18:00</li>
+              </ul>
+
+              <a
+                class="btn btn-outline"
+                style="margin-top:1rem; width:100%; text-align:center;"
+                href="https://wa.me/972542133201?text=Hi%20Gelman%20Solutions%2C%20I%27d%20like%20to%20discuss%20a%20project."
+                target="_blank"
+                rel="noopener"
+                aria-label="Open WhatsApp chat with Gelman Solutions"
+              >
+                💬 Chat on WhatsApp
+              </a>
+
+              <small class="muted" style="display:block; margin-top:.5rem">WhatsApp: +972 54‑213‑3201</small>
+            </aside>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Russian block: LTR, Israeli norms kept where relevant -->
+    <div data-lang="ru" lang="ru" dir="ltr" class="ltr" aria-hidden="true">
+      <section id="home-ru" class="hero">
+        <div class="container hero-grid">
+          <div>
+            <p class="muted" style="text-transform:uppercase;letter-spacing:.18em">Добро пожаловать</p>
+            <h1>Надежные услуги мастера — как надо.</h1>
+            <p>От мелких починок до уикенд‑проектов: Gelman Solutions — аккуратная работа, понятная коммуникация и честные цены.</p>
+            <div class="actions">
+              <a href="#services-ru" class="btn btn-outline">Услуги</a>
+              <a href="#contact-ru" class="btn btn-primary">Запросить смету</a>
+            </div>
+          </div>
+          <div class="frame">
+            <img src="https://m.media-amazon.com/images/I/711pTh86caS._UF894,1000_QL80_.jpg" alt="Инструменты на верстаке">
+          </div>
+        </div>
+      </section>
+
+      <section id="services-ru" style="background: var(--gray-100);">
+        <div class="container">
+          <h2>Услуги</h2>
+          <p class="sub">Основные услуги для дома и малого бизнеса.</p>
+
+          <div class="cards">
+            <article class="card">
+              <div><span class="badge">🛠️</span><strong>Ремонт и обслуживание</strong></div>
+              <p>Двери, коробки, ремонт гипсокартона, устранение протечек, силикон, замена фурнитуры, сезонное обслуживание.</p>
+            </article>
+            <article class="card">
+              <div><span class="badge">🔧</span><strong>Установки</strong></div>
+              <p>Крепление ТВ и полок, монтаж светильников и смесителей, умные устройства, шторы и жалюзи, бытовая техника.</p>
+            </article>
+            <article class="card">
+              <div><span class="badge">🎨</span><strong>Покраска и подкраска</strong></div>
+              <p>Обновление комнат, акцентные стены, подкраска наличников и фасада с чистой отделкой.</p>
+            </article>
+            <article class="card">
+              <div><span class="badge">🪚</span><strong>Столярные работы</strong></div>
+              <p>Небольшие сборки, регулировка шкафов, плинтусы, карнизы, ремонт.</p>
+            </article>
+            <article class="card">
+              <div><span class="badge">🧱</span><strong>Полы и плитка</strong></div>
+              <p>Кухонный камень/керамика, мелкие плиточные работы, ремонт затирки, монтаж LVP, пороги.</p>
+            </article>
+            <article class="card">
+              <div><span class="badge">🏡</span><strong>Улица и прочее</strong></div>
+              <p>Ремонт заборов, фурнитура ворот, монтаж почтовых ящиков, мойка под давлением и чек‑листы.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="about-ru" class="about">
+        <div class="container about-grid">
+          <div>
+            <h2>Gelman Solutions</h2>
+            <p class="sub">Местные, ориентированные на качество, без лишней суеты.</p>
+            <p>Мы делаем все просто и профессионально — от первого сообщения до финальной уборки. Ожидайте пунктуальность, аккуратные рабочие зоны и результат, которым вы будете довольны.</p>
+            <ul class="checks">
+              <li><span class="dot">•</span> Понятные и прозрачные сметы</li>
+              <li><span class="dot">•</span> Уважение к вашему времени и пространству</li>
+              <li><span class="dot">•</span> Застрахованы, высокие стандарты работ</li>
+            </ul>
+          </div>
+          <div class="frame">
+            <img style="border-radius: 8px;" src="https://paintdenver.com/wp-content/uploads/2013/10/shutterstock_776602372-1-scaled.jpg" alt="Мастер за работой">
+          </div>
+        </div>
+      </section>
+
+      <section id="contact-ru" style="background: var(--gray-100);">
+        <div class="container" style="max-width:760px">
+          <h2>Связаться</h2>
+          <p class="sub">Расскажите о вашем проекте. Ответим в течение двух рабочих дней.</p>
+
+          <div class="grid-2">
+            <!-- Column 1: Contact form -->
+            <div>
+              <form action="mailto:info@gelman-solutions.example" method="post" enctype="text/plain">
+                <div class="grid-2">
+                  <div>
+                    <label for="name-ru">Имя</label>
+                    <input id="name-ru" name="Name" type="text" placeholder="ФИО" required>
+                  </div>
+                  <div>
+                    <label for="email-ru">Email</label>
+                    <input id="email-ru" name="Email" type="email" placeholder="you@example.com" required>
+                  </div>
+                </div>
+                <div style="margin-top:1rem">
+                  <label for="phone-ru">Телефон (необязательно)</label>
+                  <input id="phone-ru" name="Phone" type="tel" placeholder="05X-XXXXXXX">
+                </div>
+
+                <div style="margin-top:1rem">
+                  <label for="message-ru">Сообщение</label>
+                  <textarea id="message-ru" name="Message" rows="6" placeholder="Кратко опишите проект" required></textarea>
+                </div>
+
+                <div style="margin-top:1rem;display:flex;gap:.75rem;align-items:center;justify-content:space-between;flex-wrap:wrap;">
+                  <button class="btn btn-primary" type="submit" style="width: 100%;">Отправить</button>
+                </div>
+              </form>
+            </div>
+            
+            <!-- Column 2: WhatsApp card -->
+            <aside class="card wa-card">
+              <h3 style="margin-top:0">Спросите в WhatsApp</h3>
+              <p class="muted" style="margin-top:.25rem">
+                Предпочитаете быстрый чат? Напишите нам в WhatsApp — идеально для быстрых вопросов и обмена фотографиями.
+              </p>
+
+              <ul class="checks" style="margin-top:.75rem">
+                <li><span class="dot">•</span> Быстрые вопросы и расценки</li>
+                <li><span class="dot">•</span> Обмен скриншотами и идеями</li>
+                <li><span class="dot">•</span> Рабочие часы: Вс–Чт, 9:00–18:00</li>
+              </ul>
+              <a
+                class="btn btn-outline"
+                style="margin-top:1rem; width:100%; text-align:center;"
+                href="https://wa.me/972542133201?text=Привет%20Gelman%20Solutions%2C%20хочу%20обсудить%20проект."
+                target="_blank"
+                rel="noopener"
+                aria-label="Открыть чат WhatsApp с Gelman Solutions"
+              >
+                💬 Чат в WhatsApp
+              </a>
+              <small class="muted" style="display:block; margin-top:.5rem">WhatsApp: +972 54‑213‑3201</small>
+            </aside>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
 
   <!-- Footer -->
   <footer>
-    <div class="container" style="display:flex;gap:1rem;justify-content:space-between;align-items:center;flex-wrap:wrap">
-      <div style="display:flex;align-items:center;gap:.5rem">
+    <div class="container" style="display:flex;gap:1rem;justify-content:space-between;align-items:center;flex-wrap:wrap;flex-direction: row-reverse">
+      <div style="display:flex;align-items:center;gap:.5rem;flex-direction: row-reverse">
         <span style="display:inline-grid;place-items:center;width:24px;height:24px;border-radius:6px;background:var(--red);color:#000;font-weight:800">G</span>
         <span>© <span id="y"></span> Gelman Solutions</span>
       </div>
-      <div class="muted">White • Black • Red palette • Clean & responsive</div>
     </div>
-    <script>document.getElementById('y').textContent=new Date().getFullYear();</script>
   </footer>
+
+  <script>
+    // Year in footer
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Language switching
+    (function(){
+      const html = document.documentElement;
+      const langButtons = document.querySelectorAll('.lang-btn');
+      const blocks = document.querySelectorAll('[data-lang]');
+      const nav = document.querySelector('.nav-links');
+      const navLinks = {
+        services: nav.querySelector('a[href^="#services"]'),
+        about: nav.querySelector('a[href^="#about"]'),
+        contact: nav.querySelector('a[href^="#contact"]')
+      };
+
+      // Labels and document title per language
+      const i18n = {
+        he: {
+          dir: 'rtl', lang: 'he',
+          labels: { services:'שירותים', about:'עלינו', contact:'קבלת הצעת מחיר' },
+          href: { services:'#services', about:'#about', contact:'#contact' },
+          title: 'Gelman Solutions | שירותי הנדימן'
+        },
+        en: {
+          dir: 'ltr', lang: 'en',
+          labels: { services:'Services', about:'About', contact:'Request a Quote' },
+          href: { services:'#services-en', about:'#about-en', contact:'#contact-en' },
+          title: 'Gelman Solutions | Handyman Services'
+        },
+        ru: {
+          dir: 'ltr', lang: 'ru',
+          labels: { services:'Услуги', about:'О нас', contact:'Запросить смету' },
+          href: { services:'#services-ru', about:'#about-ru', contact:'#contact-ru' },
+          title: 'Gelman Solutions | Услуги мастера'
+        }
+      };
+
+      function setLanguage(code){
+        // Toggle visible language block
+        blocks.forEach(b=>{
+          const active = b.getAttribute('data-lang') === code;
+          b.classList.toggle('active', active);
+          b.setAttribute('aria-hidden', active ? 'false' : 'true');
+        });
+
+        // Update nav labels + links
+        navLinks.services.textContent = i18n[code].labels.services;
+        navLinks.services.setAttribute('href', i18n[code].href.services);
+        navLinks.about.textContent = i18n[code].labels.about;
+        navLinks.about.setAttribute('href', i18n[code].href.about);
+        navLinks.contact.textContent = i18n[code].labels.contact;
+        navLinks.contact.setAttribute('href', i18n[code].href.contact);
+
+        // Document language/dir for accessibility
+        html.lang = i18n[code].lang;
+        html.dir = i18n[code].dir;
+
+        // Update page title
+        document.title = i18n[code].title;
+
+        // Toggle pressed state and persist
+        langButtons.forEach(btn=>{
+          const pressed = btn.getAttribute('data-lang-code') === code ? 'true' : 'false';
+          btn.setAttribute('aria-pressed', pressed);
+        });
+        try{ localStorage.setItem('gelman_lang', code); }catch(e){}
+      }
+
+      // Attach handlers
+      langButtons.forEach(btn=>{
+        btn.addEventListener('click', ()=>{
+          setLanguage(btn.getAttribute('data-lang-code'));
+        });
+      });
+
+      // Restore preference or default to Hebrew
+      let initial = 'he';
+      try{
+        const saved = localStorage.getItem('gelman_lang');
+        if(saved) initial = saved;
+      }catch(e){}
+      setLanguage(initial);
+    })();
+  </script>
 </body>
 </html>
-
