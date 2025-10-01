@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
@@ -30,6 +31,7 @@
     }
     img{max-width:100%;display:block;}
     a{color:inherit;text-decoration:none}
+
     /* Layout helpers */
     .container{max-width:var(--max);margin:0 auto;padding:0 1rem}
     .btn{
@@ -40,12 +42,14 @@
       border:1px solid transparent;
       cursor:pointer;
       transition:.15s ease-in-out;
+      text-align:center;
     }
     .btn-primary{background:var(--red);color:#fff}
     .btn-primary:hover{opacity:.9}
     .btn-outline{border-color:var(--red);color:var(--red);background:transparent}
     .btn-outline:hover{background:var(--red);color:#fff}
-    /* Header */
+
+    /* Header - Mobile First */
     header{
       position: sticky; top:0; z-index:10;
       background: #f9f9f9;
@@ -53,106 +57,151 @@
       border-bottom:1px solid var(--gray-200);
     }
     .nav{
-      display:flex;align-items:center;justify-content:space-between;height:72px;
-      flex-direction: row;
+      display:flex;align-items:center;justify-content:space-between;
+      min-height:60px; padding: 0.5rem 0;
+      flex-wrap: wrap; gap: 0.75rem;
     }
-    .brand{display:flex;gap:.75rem;align-items:center;flex-direction: row-reverse}
+    
+    /* Brand - Mobile optimized */
+    .brand{
+      display:flex;gap:.5rem;align-items:center;
+      flex-direction: row-reverse;
+      flex-shrink: 0;
+    }
+    .brand img{
+      height:32px;width:32px;object-fit:contain;
+    }
     .brand-text{line-height:1;text-align:right}
-    .brand-title{font-size:1.6rem;font-weight:800;letter-spacing:.4px}
-    .brand-sub{font-size:.7rem;letter-spacing:.28em;color:var(--gray-500);margin-top:.1rem}
-    .nav-links{display:flex;gap:.5rem;align-items:center;flex-direction: row-reverse}
+    .brand-title{font-size:1.3rem;font-weight:800;letter-spacing:.2px}
+    .brand-sub{font-size:.6rem;letter-spacing:.2em;color:var(--gray-500);margin-top:.1rem}
+
+    /* Language switcher - Mobile optimized */
+    .lang-switch{
+      display:flex;gap:.3rem;align-items:center;
+      flex-direction: row-reverse;
+      order: 2;
+    }
+    .lang-btn{
+      display:inline-flex;align-items:center;gap:.3rem;
+      padding:.3rem .5rem;border-radius:.4rem;
+      border:1px solid var(--gray-200);background:#fff;color:var(--black);
+      font-weight:700;cursor:pointer;font-size:.85rem;
+    }
+    .lang-btn[aria-pressed="true"]{
+      border-color:var(--red);
+      box-shadow:0 0 0 2px color-mix(in oklab, var(--red) 14%, transparent)
+    }
+    .flag{width:16px;height:11px;border:1px solid var(--gray-200);border-radius:2px;display:inline-block}
+
+    /* Navigation - Mobile responsive */
+    .nav-links{
+      display:flex;gap:.4rem;align-items:center;
+      flex-direction: row-reverse;
+      order: 3;
+      width: 100%;
+      justify-content: space-between;
+      margin-top: 0.5rem;
+    }
     .nav-links a{
-      padding:.5rem .75rem;border-radius:.4rem;font-weight:600;color:#222;
+      padding:.4rem .6rem;border-radius:.4rem;font-weight:600;color:#222;
+      font-size:.9rem;text-align:center;flex:1;
     }
     .nav-links a:hover{background:var(--gray-100)}
-
-    /* Language switcher buttons — UPDATED FLAGS */
-    .lang-switch{display:flex;gap:.5rem;align-items:center;flex-direction: row-reverse}
-    .lang-btn{
-      display:inline-flex;align-items:center;gap:.4rem;
-      padding:.4rem .6rem;border-radius:.45rem;
-      border:1px solid var(--gray-200);background:#fff;color:var(--black);font-weight:700;cursor:pointer;
+    .nav-links .btn{
+      padding:.4rem .8rem;font-size:.9rem;
     }
-    .lang-btn[aria-pressed="true"]{border-color:var(--red);box-shadow:0 0 0 3px color-mix(in oklab, var(--red) 14%, transparent)}
-    .flag{width:18px;height:12px;border:1px solid var(--gray-200);border-radius:2px;display:inline-block}
 
-    /* Hero */
-    .hero{background:var(#fff);padding:3rem 0}
+    /* Hero - Mobile First */
+    .hero{background:var(#fff);padding:2rem 0}
     .hero-grid{
-      display:grid;gap:2rem;align-items:center;
+      display:grid;gap:1.5rem;align-items:center;
       grid-template-columns: 1fr;
     }
-    .hero h1{font-size:2.2rem;line-height:1.2;margin:.25rem 0}
-    .hero p{color:var(--gray-700);margin-top:.75rem}
-    .hero .actions{margin-top:1rem;display:flex;gap:.75rem;flex-wrap:wrap;flex-direction: row-reverse}
-    .hero{
-      border:1px solid var(--gray-200);border-radius:1rem;background:#fff;
-      padding:.5rem;
+    .hero h1{font-size:1.8rem;line-height:1.2;margin:.25rem 0}
+    .hero p{color:var(--gray-700);margin-top:.75rem;font-size:.95rem}
+    .hero .actions{
+      margin-top:1rem;display:flex;gap:.5rem;flex-wrap:wrap;
+      flex-direction: row-reverse;
     }
-    .frame{padding:2rem;}
-    /* Section */
-    section{padding:3rem 0}
-    section h2{font-size:1.8rem;line-height:1.25;margin:0}
-    section .sub{color:var(--gray-700);margin-top:.35rem}
-    /* Services */
+    .hero .actions .btn{
+      flex:1;min-width:140px;font-size:.9rem;
+    }
+    .hero .frame{
+      border:1px solid var(--gray-200);border-radius:1rem;background:#fff;
+      padding:.4rem;
+    }
+    .frame{padding:1.5rem;}
+
+    /* Section - Mobile optimized */
+    section{padding:2.5rem 0}
+    section h2{font-size:1.6rem;line-height:1.25;margin:0}
+    section .sub{color:var(--gray-700);margin-top:.35rem;font-size:.9rem}
+
+    /* Services - Mobile grid */
     .cards{
       margin-top:1.25rem;
-      display:grid;gap:1rem;
+      display:grid;gap:.75rem;
       grid-template-columns: 1fr;
     }
     .card{
-      border:1px solid var(--gray-200);border-radius:.8rem;background:#fff;padding:1rem;
+      border:1px solid var(--gray-200);border-radius:.8rem;background:#fff;
+      padding:.75rem;
     }
-    .card h3{margin:.25rem 0;font-size:1.05rem}
+    .card h3{margin:.25rem 0;font-size:1rem}
     
-    /* FIXED BADGE ALIGNMENT - works for both RTL and LTR */
+    /* Badge - Mobile optimized */
     .badge{
-      width:40px;height:40px;border-radius:999px;display:inline-grid;place-items:center;
+      width:36px;height:36px;border-radius:999px;display:inline-grid;place-items:center;
       background: color-mix(in oklab, var(--red) 12%, white);
-      color:var(--red);font-size:1.1rem;
-      flex-shrink: 0; /* Prevents badge from shrinking */
+      color:var(--red);font-size:1rem;
+      flex-shrink: 0;
     }
     .card > div:first-child {
       display:flex;
       align-items:center;
-      gap:.75rem;
+      gap:.6rem;
     }
-    /* RTL: badge on the right, text on the left */
     [dir="rtl"] .card > div:first-child {
       flex-direction: row;
     }
-    /* LTR: badge on the left, text on the right */
     [dir="ltr"] .card > div:first-child {
       flex-direction: row;
     }
     
-    .card p{color:var(--gray-700);font-size:.95rem;margin:.35rem 0 0}
+    .card p{color:var(--gray-700);font-size:.9rem;margin:.3rem 0 0}
     
-    /* About */
+    /* About - Mobile responsive */
     .about-grid{
-      display:grid;gap:2rem;grid-template-columns: 1fr;
+      display:grid;gap:1.5rem;grid-template-columns: 1fr;
       align-items:center;
     }
-    .about .frame{border:1px solid var(--gray-200);border-radius:1rem;background:#fff;padding:.5rem}
-    ul.checks{list-style:none;padding:0;margin:1rem 0 0}
-    ul.checks li{display:flex;gap:.5rem;align-items:flex-start;margin:.35rem 0;color:var(--gray-900)}
+    .about .frame{
+      border:1px solid var(--gray-200);border-radius:1rem;background:#fff;
+      padding:.4rem;
+    }
+    ul.checks{list-style:none;padding:0;margin:.75rem 0 0}
+    ul.checks li{
+      display:flex;gap:.4rem;align-items:flex-start;margin:.25rem 0;
+      color:var(--gray-900);font-size:.9rem;
+    }
     ul.checks .dot{color:var(--red);font-weight:700}
     
-    /* Contact */
+    /* Contact - Mobile optimized */
     form{margin-top:1rem}
-    .grid-2{display:grid;gap:1rem}
-    label{display:block;font-size:.9rem;font-weight:700;margin-bottom:.35rem}
+    .grid-2{display:grid;gap:.75rem}
+    label{display:block;font-size:.85rem;font-weight:700;margin-bottom:.3rem}
     input, textarea{
-      width:100%;padding:.75rem;border:1px solid var(--gray-200);border-radius:.6rem;
+      width:100%;padding:.6rem;border:1px solid var(--gray-200);border-radius:.6rem;
       font:inherit;outline:none;transition:border-color .15s, box-shadow .15s;
-      background:#fff;
+      background:#fff;font-size:16px; /* Prevents zoom on iOS */
     }
-    input:focus, textarea:focus{border-color:var(--red);box-shadow:0 0 0 3px color-mix(in oklab, var(--red) 18%, transparent)}
-    .muted{color:var(--gray-500);font-size:.9rem}
-    .previews{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.5rem;flex-direction: row-reverse}
-    .thumb{width:72px;height:72px;object-fit:cover;border:1px solid var(--gray-200);border-radius:8px}
+    input:focus, textarea:focus{
+      border-color:var(--red);
+      box-shadow:0 0 0 3px color-mix(in oklab, var(--red) 18%, transparent)
+    }
+    .muted{color:var(--gray-500);font-size:.85rem}
     
-    /* WhatsApp card styles - ADDED */
+    /* WhatsApp card styles */
     .wa-card {
       background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
       color: white;
@@ -177,15 +226,14 @@
       color: #25d366;
     }
     
-    /* Footer */
-    footer{border-top:1px solid var(--gray-200);padding:1.25rem 0;color:var(--gray-700);font-size:.9rem}
-    /* Responsive */
-    @media (min-width: 720px){
-      .hero-grid{grid-template-columns: 1.1fr .9fr}
-      .cards{grid-template-columns: repeat(3, 1fr)}
-      .about-grid{grid-template-columns: 1fr 1fr}
-      .grid-2{grid-template-columns: repeat(2, 1fr)}
-      .hero h1{font-size:2.6rem}
+    /* Footer - Mobile optimized */
+    footer{
+      border-top:1px solid var(--gray-200);padding:1rem 0;
+      color:var(--gray-700);font-size:.8rem;
+    }
+    .footer-content{
+      display:flex;gap:.75rem;justify-content:center;align-items:center;
+      flex-wrap:wrap;flex-direction: row-reverse;text-align:center;
     }
 
     /* Language visibility control */
@@ -194,56 +242,176 @@
 
     /* LTR helper for EN/RU blocks only */
     .ltr{direction:ltr;text-align:left}
+    .ltr .nav{flex-direction: row;}
     .ltr .nav-links{flex-direction: row}
     .ltr .hero .actions{flex-direction: row}
     .ltr .brand{flex-direction: row}
-    .ltr .previews{flex-direction: row}
+    .ltr .lang-switch{flex-direction: row}
+    .ltr .footer-content{flex-direction: row}
+
+    /* Tablet styles */
+    @media (min-width: 640px){
+      .container{padding:0 1.5rem}
+      
+      /* Header adjustments */
+      .nav{min-height:70px;flex-wrap: nowrap;}
+      .nav-links{
+        width: auto;
+        margin-top: 0;
+        order: initial;
+      }
+      .nav-links a{font-size:1rem;padding:.5rem .75rem}
+      
+      /* Brand larger */
+      .brand img{height:36px;width:36px}
+      .brand-title{font-size:1.5rem}
+      .brand-sub{font-size:.65rem}
+      
+      /* Hero improvements */
+      .hero{padding:3rem 0}
+      .hero h1{font-size:2.2rem}
+      .hero p{font-size:1rem}
+      .hero .actions .btn{flex:none;min-width:160px;font-size:1rem}
+      
+      /* Services in 2 columns */
+      .cards{grid-template-columns: repeat(2, 1fr);gap:1rem}
+      .card{padding:1rem}
+      .card h3{font-size:1.1rem}
+      .card p{font-size:.95rem}
+      .badge{width:40px;height:40px;font-size:1.1rem}
+      
+      /* About grid */
+      .about-grid{grid-template-columns: 1fr 1fr;gap:2rem}
+      
+      /* Contact form in 2 columns */
+      .grid-2{grid-template-columns: repeat(2, 1fr);gap:1rem}
+      
+      /* Section spacing */
+      section{padding:3rem 0}
+      section h2{font-size:1.8rem}
+      section .sub{font-size:1rem}
+    }
+
+    /* Desktop styles - IMPROVED NAVIGATION */
+    @media (min-width: 1024px){
+      /* Better header spacing and layout */
+      .nav{
+        min-height:80px;
+        gap: 2rem;
+      }
+      
+      /* Larger brand */
+      .brand img{height:42px;width:42px}
+      .brand-title{font-size:1.7rem;letter-spacing:.3px}
+      .brand-sub{font-size:.7rem;letter-spacing:.25em}
+      
+      /* Better language switcher */
+      .lang-switch{
+        gap:.5rem;
+        order: 1;
+      }
+      .lang-btn{
+        padding:.4rem .7rem;
+        font-size:.9rem;
+      }
+      .flag{width:18px;height:12px}
+      
+      /* Improved navigation links */
+      .nav-links{
+        gap:1rem;
+        order: 2;
+      }
+      .nav-links a{
+        font-size:1rem;
+        padding:.6rem 1rem;
+        white-space: nowrap;
+      }
+      .nav-links .btn{
+        padding:.6rem 1.2rem;
+        font-size:1rem;
+      }
+      
+      /* Hero side-by-side */
+      .hero-grid{grid-template-columns: 1.1fr .9fr;gap:2rem}
+      .hero h1{font-size:2.6rem}
+      
+      /* Services in 3 columns */
+      .cards{grid-template-columns: repeat(3, 1fr)}
+      
+      /* Larger contact form */
+      form input, form textarea{padding:.75rem}
+      label{font-size:.9rem}
+    }
+
+    /* Large desktop - even more spacing */
+    @media (min-width: 1200px){
+      .nav{
+        gap: 3rem;
+      }
+      .nav-links{
+        gap:1.5rem;
+      }
+    }
+
+    /* Touch improvements */
+    @media (hover: none) and (pointer: coarse) {
+      .btn{
+        min-height: 44px;
+        padding: .75rem 1rem;
+      }
+      .lang-btn{
+        min-height: 40px;
+        padding: .4rem .6rem;
+      }
+      .nav-links a{
+        min-height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
   </style>
 </head>
 <body>
   <!-- Header -->
   <header>
     <div class="container nav">
-      <a href="#home" class="brand" aria-label="Gelman Solutions Home" style="justify-content:flex-end">
-        <!-- הלוגו ושם החברה באנגלית, מיושרים לימין -->
-        <img src="/GelmanSolutions - Logo 2.png" alt="Gelman Solutions logo" style="height:40px;width:40px;object-fit:contain" />
+      <a href="#home" class="brand" aria-label="Gelman Solutions Home">
+        <img src="/GelmanSolutions - Logo 2.png" alt="Gelman Solutions logo" />
         <div class="brand-text">
           <div class="brand-title">GELMAN</div>
           <div class="brand-sub">SOLUTIONS</div>
         </div>
       </a>
 
-      <!-- Language switcher — UPDATED WITH CORRECT FLAGS -->
+      <!-- Language switcher -->
       <div class="lang-switch" role="group" aria-label="Language switcher">
         <button type="button" class="lang-btn" data-lang-code="he" aria-pressed="true" title="עברית">
-          <!-- Israel flag: blue and white stripes with Star of David -->
           <span class="flag" aria-hidden="true" style="background: linear-gradient(to bottom, #0038b8 0%, #0038b8 20%, #fff 20%, #fff 40%, #fff 40%, #fff 60%, #fff 60%, #fff 80%, #0038b8 80%, #0038b8 100%); position: relative;">
-            <span style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #0038b8; font-size: 8px; padding-bottom: 2.35px;">✡</span>
+            <span style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #0038b8; font-size: 7px; padding-bottom: 1px;">✡</span>
           </span>
         </button>
         <button type="button" class="lang-btn" data-lang-code="en" aria-pressed="false" title="English">
-          <!-- US flag: red, white, and blue with stars and stripes pattern -->
           <span class="flag" aria-hidden="true" style="background: linear-gradient(to bottom, #b22234 0%, #b22234 8%, #fff 8%, #fff 15%, #b22234 15%, #b22234 23%, #fff 23%, #fff 31%, #b22234 31%, #b22234 38%, #fff 38%, #fff 46%, #b22234 46%, #b22234 54%, #fff 54%, #fff 62%, #b22234 62%, #b22234 69%, #fff 69%, #fff 77%, #b22234 77%, #b22234 85%, #fff 85%, #fff 92%, #b22234 92%, #b22234 100%); position: relative;">
             <span style="position: absolute; top: 0; left: 0; width: 40%; height: 54%; background: #3c3b6e;"></span>
           </span>
         </button>
         <button type="button" class="lang-btn" data-lang-code="ru" aria-pressed="false" title="Русский">
-          <!-- Russian flag: white, blue, red horizontal stripes -->
           <span class="flag" aria-hidden="true" style="background: linear-gradient(to bottom, #fff 0%, #fff 33.33%, #0039a6 33.33%, #0039a6 66.66%, #d52b1e 66.66%, #d52b1e 100%)"></span>
         </button>
       </div>
 
-      <nav class="nav-links" aria-label="Main navigation" style="direction: ltr;">
+      <nav class="nav-links" aria-label="Main navigation">
         <a href="#services">שירותים</a>
         <a href="#about">עלינו</a>
-        <a href="#contact" class="btn btn-primary" style="padding:.5rem .9rem">קבלת הצעת מחיר</a>
+        <a href="#contact" class="btn btn-primary">קבלת הצעת מחיר</a>
       </nav>
     </div>
   </header>
 
   <!-- Language blocks wrapper -->
   <main>
-    <!-- Hebrew block: original content, RTL, default active -->
+    <!-- Hebrew block -->
     <div data-lang="he" class="active" lang="he" dir="rtl">
       <!-- Hero -->
       <section id="home" class="hero">
@@ -344,11 +512,11 @@
 
                 <div style="margin-top:1rem">
                   <label for="message">הודעה</label>
-                  <textarea id="message" name="Message" rows="6" placeholder="תארו בקצרה את הפרויקט" lang="he"dir="rtl" required></textarea>
+                  <textarea id="message" name="Message" rows="6" placeholder="תארו בקצרה את הפרויקט" lang="he" dir="rtl" required></textarea>
                 </div>
 
-                <div style="margin-top:1rem;display:flex;gap:.75rem;align-items:center;justify-content:space-between;flex-wrap:wrap;flex-direction: row-reverse">
-                  <button class="btn btn-primary" type="submit" style="width: 100%; font-size: 16px;">שליחה</button>
+                <div style="margin-top:1rem;">
+                  <button class="btn btn-primary" type="submit" style="width: 100%;">שליחה</button>
                 </div>
               </form>
             </div>
@@ -367,8 +535,8 @@
               </ul>
               <a
                 class="btn btn-outline"
-                style="margin-top:1rem; text-align:center; width: 100%;"
-                href="https://wa.me/972542133201?text=שלום%20Gelman%20Solutions%2C%20אני%20מעוניין%20לדבר%20על%20פרויקט."
+                style="margin-top:1rem; width: 100%;"
+                href="https://wa.me/972554424067?text=שלום%20Gelman%20Solutions%2C%20אני%20מעוניין%20לדבר%20על%20פרויקט."
                 target="_blank"
                 rel="noopener"
                 aria-label="פתח צ'אט וואטסאפ עם Gelman Solutions"
@@ -376,14 +544,14 @@
                 💬 צ'אט בוואטסאפ
               </a>
 
-              <small class="muted" style="display:block; margin-top:.5rem;">וואטסאפ: 054-213-3201</small>
+              <small class="muted" style="display:block; margin-top:.5rem;">וואטסאפ: 055-442-4067</small>
             </aside>
           </div>
         </div>
       </section>
     </div>
 
-    <!-- English block: LTR, Israeli norms kept where relevant -->
+    <!-- English block -->
     <div data-lang="en" lang="en" dir="ltr" class="ltr" aria-hidden="true">
       <section id="home-en" class="hero">
         <div class="container hero-grid">
@@ -483,7 +651,7 @@
                   <textarea id="message-en" name="Message" rows="6" placeholder="Briefly describe your project" required></textarea>
                 </div>
 
-                <div style="margin-top:1rem;display:flex;gap:.75rem;align-items:center;justify-content:space-between;flex-wrap:wrap;">
+                <div style="margin-top:1rem;">
                   <button class="btn btn-primary" type="submit" style="width: 100%;">Send</button>
                 </div>
               </form>
@@ -504,8 +672,8 @@
 
               <a
                 class="btn btn-outline"
-                style="margin-top:1rem; width:100%; text-align:center;"
-                href="https://wa.me/972542133201?text=Hi%20Gelman%20Solutions%2C%20I%27d%20like%20to%20discuss%20a%20project."
+                style="margin-top:1rem; width:100%;"
+                href="https://wa.me/972554424067?text=Hi%20Gelman%20Solutions%2C%20I%27d%20like%20to%20discuss%20a%20project."
                 target="_blank"
                 rel="noopener"
                 aria-label="Open WhatsApp chat with Gelman Solutions"
@@ -513,14 +681,14 @@
                 💬 Chat on WhatsApp
               </a>
 
-              <small class="muted" style="display:block; margin-top:.5rem">WhatsApp: +972 54‑213‑3201</small>
+              <small class="muted" style="display:block; margin-top:.5rem">WhatsApp: +972 55‑442‑4067</small>
             </aside>
           </div>
         </div>
       </section>
     </div>
 
-    <!-- Russian block: LTR, Israeli norms kept where relevant -->
+    <!-- Russian block -->
     <div data-lang="ru" lang="ru" dir="ltr" class="ltr" aria-hidden="true">
       <section id="home-ru" class="hero">
         <div class="container hero-grid">
@@ -620,7 +788,7 @@
                   <textarea id="message-ru" name="Message" rows="6" placeholder="Кратко опишите проект" required></textarea>
                 </div>
 
-                <div style="margin-top:1rem;display:flex;gap:.75rem;align-items:center;justify-content:space-between;flex-wrap:wrap;">
+                <div style="margin-top:1rem;">
                   <button class="btn btn-primary" type="submit" style="width: 100%;">Отправить</button>
                 </div>
               </form>
@@ -640,15 +808,15 @@
               </ul>
               <a
                 class="btn btn-outline"
-                style="margin-top:1rem; width:100%; text-align:center;"
-                href="https://wa.me/972542133201?text=Привет%20Gelman%20Solutions%2C%20хочу%20обсудить%20проект."
+                style="margin-top:1rem; width:100%;"
+                href="https://wa.me/972554424067?text=Привет%20Gelman%20Solutions%2C%20хочу%20обсудить%20проект."
                 target="_blank"
                 rel="noopener"
                 aria-label="Открыть чат WhatsApp с Gelman Solutions"
               >
                 💬 Чат в WhatsApp
               </a>
-              <small class="muted" style="display:block; margin-top:.5rem">WhatsApp: +972 54‑213‑3201</small>
+              <small class="muted" style="display:block; margin-top:.5rem">WhatsApp: +972 55‑442‑4067</small>
             </aside>
           </div>
         </div>
@@ -658,9 +826,9 @@
 
   <!-- Footer -->
   <footer>
-    <div class="container" style="display:flex;gap:1rem;justify-content:space-between;align-items:center;flex-wrap:wrap;flex-direction: row-reverse">
+    <div class="container footer-content">
       <div style="display:flex;align-items:center;gap:.5rem;flex-direction: row-reverse">
-        <span style="display:inline-grid;place-items:center;width:24px;height:24px;border-radius:6px;background:var(--red);color:#000;font-weight:800">G</span>
+        <span style="display:inline-grid;place-items:center;width:20px;height:20px;border-radius:4px;background:var(--red);color:#fff;font-weight:800;font-size:.7rem">G</span>
         <span>© <span id="y"></span> Gelman Solutions</span>
       </div>
     </div>
@@ -753,5 +921,3 @@
   </script>
 </body>
 </html>
-
-
